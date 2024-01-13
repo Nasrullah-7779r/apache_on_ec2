@@ -15,7 +15,7 @@ Steps:
 7.	add following configurations and save the file
 # for app 1
 ```
-<VirtualHost *:8000>  
+<VirtualHost *:5085>  
 erverName localhost ServerAlias
 ServerAdmin webmaster@localhost 
 DocumentRoot /var/www/html/app1 
@@ -26,7 +26,7 @@ CustomLog ${APCHE_LOG-DIR}/access.log
 
 # for app 2
 ```
-<VirtualHost *:5085>  
+<VirtualHost *:8000>  
 erverName localhost ServerAlias
 ServerAdmin webmaster@localhost 
 DocumentRoot /var/www/html/app2 
@@ -40,7 +40,7 @@ CustomLog ${APCHE_LOG-DIR}/access.log
     Listen 8000    # for app 1
     Listen 5085    # for app 2
 
-10.	Add two inbound rules in your instance’s security group to enable both ports (8000, 5085)
+10.	Add two inbound rules in your instance’s security group to enable both ports (5085, 8000)
 
 11.	Run: systemctl restart apache2
 
@@ -48,8 +48,8 @@ CustomLog ${APCHE_LOG-DIR}/access.log
   
 For example:
        ```
+       http://43.204.216.0:5085
+       ```
+       ```
        http://43.204.216.0:8000
-       ```
-       ```
-       http://43.204.216.0:5085 
        ```  
